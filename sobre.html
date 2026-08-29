@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sobre nós — PharmaFind</title>
+<meta name="description" content="Conheça o propósito, o escopo e a visão de futuro do PharmaFind, um protótipo acadêmico de comparação de preços de medicamentos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="utility-bar">
+  <div class="container">
+    <button class="utility-btn" data-open-cep type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      <span data-cep-display>Informe seu CEP</span>
+    </button>
+    <span class="utility-sep" aria-hidden="true"></span>
+    <button class="utility-btn" data-open-location type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="6"/></svg>
+      Usar localização
+    </button>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 48 48" fill="none">
+        <path d="M28 6.5 6.5 28a7.6 7.6 0 0 0 10.7 10.7L38.7 17.2A7.6 7.6 0 0 0 28 6.5Z" fill="#102B4E"/>
+        <path d="M28 6.5 17.6 16.9l10.7 10.7L38.7 17.2A7.6 7.6 0 0 0 28 6.5Z" fill="#E63946"/>
+        <circle cx="19" cy="26" r="8.5" fill="#fff" stroke="#102B4E" stroke-width="2.4"/>
+      </svg>
+      <span class="brand-name">Pharma<b>Find</b></span>
+    </a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="consulta.html">Consultar</a>
+      <a href="como-funciona.html">Como funciona</a>
+      <a href="sobre.html" aria-current="page">Sobre nós</a>
+    </nav>
+    <div class="header-actions">
+      <a href="consulta.html" class="btn btn-outline btn-sm">Consultar agora</a>
+      <button class="hamburger" id="hamburgerBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="Abrir menu">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobileNav" aria-label="Navegação mobile">
+  <a href="index.html">Início</a>
+  <a href="consulta.html">Consultar</a>
+  <a href="como-funciona.html">Como funciona</a>
+  <a href="sobre.html" aria-current="page">Sobre nós</a>
+  <div class="mobile-cta">
+    <a href="consulta.html" class="btn btn-primary btn-block">Consultar medicamentos</a>
+  </div>
+</nav>
+
+<main>
+  <section class="section" style="padding-bottom: 20px;">
+    <div class="container about-hero">
+      <div>
+        <p class="eyebrow">Sobre o PharmaFind</p>
+        <h1 class="section-title">Um protótipo acadêmico para simplificar a comparação de preços</h1>
+        <p class="section-sub">O PharmaFind é um projeto acadêmico que explora como a comparação de preços de medicamentos pode ser rápida, clara e agradável de usar — em qualquer dispositivo, sem depender de sistemas complexos.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&w=900&q=80" alt="Prateleiras organizadas de uma farmácia moderna">
+    </div>
+  </section>
+
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="section-head center">
+        <p class="eyebrow">O projeto em três blocos</p>
+        <h2 class="section-title">Propósito, escopo e evolução</h2>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <p class="eyebrow">Propósito</p>
+          <h3>Simplificar a comparação</h3>
+          <p>Reunir preços de diferentes farmácias em um só lugar, com uma experiência clara o suficiente para qualquer pessoa usar sem esforço.</p>
+        </div>
+        <div class="pillar-card">
+          <p class="eyebrow">Escopo</p>
+          <h3>Começar pequeno e funcional</h3>
+          <p>Este protótipo trabalha com um catálogo local de medicamentos e farmácias fictícias, priorizando a experiência de busca, filtro e comparação.</p>
+        </div>
+        <div class="pillar-card">
+          <p class="eyebrow">Evolução</p>
+          <h3>Espaço para crescer</h3>
+          <p>A estrutura foi pensada para, no futuro, receber dados reais, integrações com farmácias e geolocalização precisa sem grandes mudanças de arquitetura.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <p class="eyebrow">Identidade visual</p>
+        <h2 class="section-title">Um design pensado para inspirar confiança</h2>
+        <p class="section-sub">A paleta em azul-marinho e vermelho, combinada a uma tipografia editorial, busca transmitir seriedade institucional sem perder a leveza de um produto digital moderno.</p>
+      </div>
+      <div class="values-list">
+        <div class="value-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>Clareza</span>
+        </div>
+        <div class="value-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>Acessibilidade</span>
+        </div>
+        <div class="value-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="7" height="16" rx="1.5"/><rect x="14" y="4" width="7" height="10" rx="1.5"/></svg>
+          <span>Responsividade</span>
+        </div>
+        <div class="value-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12h6"/></svg>
+          <span>Simplicidade</span>
+        </div>
+        <div class="value-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h9"/></svg>
+          <span>Navegação fácil</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="cta-band">
+        <div>
+          <h2>Quer ver o PharmaFind em ação?</h2>
+          <p>Experimente a página de consulta e veja como a comparação de preços pode ser simples.</p>
+        </div>
+        <a href="consulta.html" class="btn btn-primary">Consultar medicamentos</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg class="brand-mark" viewBox="0 0 48 48" fill="none" style="width:30px;height:30px;">
+            <path d="M28 6.5 6.5 28a7.6 7.6 0 0 0 10.7 10.7L38.7 17.2A7.6 7.6 0 0 0 28 6.5Z" fill="#fff"/>
+            <circle cx="19" cy="26" r="8.5" fill="#0B2039" stroke="#fff" stroke-width="2.4"/>
+          </svg>
+          PharmaFind
+        </div>
+        <p class="footer-tagline">Compare. Encontre. Economize. Um protótipo acadêmico para comparação de preços de medicamentos.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="consulta.html">Consultar</a></li>
+          <li><a href="como-funciona.html">Como funciona</a></li>
+          <li><a href="sobre.html">Sobre nós</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Farmácias parceiras</h4>
+        <ul>
+          <li><a href="consulta.html">Farmácia Vida</a></li>
+          <li><a href="consulta.html">Saúde Popular</a></li>
+          <li><a href="consulta.html">Bem Estar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Projeto</h4>
+        <ul>
+          <li><a href="sobre.html">Propósito</a></li>
+          <li><a href="sobre.html">Identidade visual</a></li>
+          <li><a href="como-funciona.html">Evolução futura</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PharmaFind — protótipo acadêmico, dados fictícios.</span>
+      <span>Feito com HTML, CSS e JavaScript puro.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="overlay" id="cepOverlay" role="dialog" aria-modal="true" aria-labelledby="cepTitle">
+  <div class="dialog">
+    <button class="dialog-close" data-close-dialog aria-label="Fechar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 6 12 12M18 6 6 18"/></svg>
+    </button>
+    <h3 id="cepTitle">Informe seu CEP</h3>
+    <p>Usamos o CEP apenas para simular ofertas de farmácias próximas a você.</p>
+    <form id="cepForm">
+      <div class="field">
+        <label for="cepInput">CEP</label>
+        <input type="text" id="cepInput" inputmode="numeric" placeholder="00000-000" maxlength="9" aria-describedby="cepError">
+        <p class="field-error" id="cepError"></p>
+        <p class="field-success" id="cepSuccess"></p>
+      </div>
+      <div class="dialog-actions">
+        <button type="submit" class="btn btn-primary">Salvar CEP</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="overlay" id="locationOverlay" role="dialog" aria-modal="true" aria-labelledby="locationTitle">
+  <div class="dialog">
+    <button class="dialog-close" data-close-dialog aria-label="Fechar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 6 12 12M18 6 6 18"/></svg>
+    </button>
+    <div class="geo-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="6"/></svg>
+    </div>
+    <h3 id="locationTitle">Usar sua localização?</h3>
+    <p>Sua localização aproximada será usada apenas para simular ofertas de farmácias próximas. Você pode recusar a qualquer momento.</p>
+    <div class="dialog-actions">
+      <button class="btn btn-ghost" id="locationDeny" type="button">Agora não</button>
+      <button class="btn btn-primary" id="locationAllow" type="button">Permitir localização</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
