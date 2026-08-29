@@ -1,269 +1,905 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Consultar medicamentos — PharmaFind</title>
-<meta name="description" content="Pesquise medicamentos, filtre por tipo e farmácia e ordene por preço para encontrar a melhor oferta.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Consulta de Medicamentos — PharmaFind</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    .consulta-header {
+
+      max-width: 760px;
+
+      padding:
+        4rem
+        0
+        2rem;
+
+    }
+
+
+    .consulta-header span {
+
+      color: var(--pf-red);
+
+      font-size: 0.72rem;
+
+      font-weight: 800;
+
+      letter-spacing: 0.12em;
+
+    }
+
+
+    .consulta-header h1 {
+
+      margin:
+        0.5rem
+        0
+        0.8rem;
+
+      color: var(--pf-navy);
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:
+        clamp(
+          2.5rem,
+          5vw,
+          4.5rem
+        );
+
+      line-height: 1;
+
+      letter-spacing: -0.04em;
+
+    }
+
+
+    .consulta-header p {
+
+      color: var(--pf-muted);
+
+      line-height: 1.7;
+
+    }
+
+
+    .search-panel {
+
+      display: grid;
+
+      grid-template-columns:
+        2fr
+        1fr
+        1fr
+        1fr;
+
+      gap: 0.8rem;
+
+      margin-bottom: 2rem;
+
+      padding: 1rem;
+
+      background: white;
+
+      border:
+        1px solid var(--pf-border);
+
+      border-radius: 18px;
+
+    }
+
+
+    .search-panel label {
+
+      min-width: 0;
+
+      color: var(--pf-navy);
+
+      font-size: 0.78rem;
+
+      font-weight: 700;
+
+    }
+
+
+    .search-panel input,
+    .search-panel select {
+
+      width: 100%;
+
+      min-width: 0;
+
+      margin: 0;
+
+    }
+
+
+    .results-header {
+
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+
+      gap: 1rem;
+
+      margin-bottom: 1rem;
+
+    }
+
+
+    .results-header h2 {
+
+      margin: 0;
+
+      color: var(--pf-navy);
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+    }
+
+
+    .products-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          5,
+          minmax(0, 1fr)
+        );
+
+      gap: 1rem;
+
+    }
+
+
+    .product-card {
+
+      display: flex;
+
+      min-width: 0;
+
+      flex-direction: column;
+
+      overflow: hidden;
+
+      background: white;
+
+      border:
+        1px solid var(--pf-border);
+
+      border-radius: 18px;
+
+      box-shadow:
+        0 8px 25px
+        rgba(16, 43, 78, 0.04);
+
+    }
+
+
+    .product-card img {
+
+      width: 100%;
+
+      aspect-ratio: 4 / 3;
+
+      object-fit: cover;
+
+    }
+
+
+    .product-content {
+
+      display: flex;
+
+      height: 100%;
+
+      flex-direction: column;
+
+      gap: 0.45rem;
+
+      padding: 0.9rem;
+
+    }
+
+
+    .product-type {
+
+      align-self: flex-start;
+
+      padding:
+        0.25rem
+        0.5rem;
+
+      border-radius: 999px;
+
+      background: #eaf5ef;
+
+      color: #176344;
+
+      font-size: 0.64rem;
+
+      font-weight: 800;
+
+    }
+
+
+    .product-card h3 {
+
+      margin: 0;
+
+      color: var(--pf-navy);
+
+      font-family:
+        "DM Sans",
+        sans-serif;
+
+      font-size: 0.95rem;
+
+      line-height: 1.3;
+
+      word-break: normal;
+      overflow-wrap: normal;
+
+    }
+
+
+    .product-description,
+    .product-pharmacy {
+
+      margin: 0;
+
+      color: var(--pf-muted);
+
+      font-size: 0.73rem;
+
+      line-height: 1.4;
+
+    }
+
+
+    .product-price {
+
+      margin-top: auto;
+
+      padding-top: 0.35rem;
+
+      color: var(--pf-red);
+
+      font-size: 1.25rem;
+
+      font-weight: 800;
+
+      white-space: nowrap;
+
+    }
+
+
+    .offer-button {
+
+      display: flex;
+
+      justify-content: center;
+
+      margin-top: 0.25rem;
+
+      padding:
+        0.5rem
+        0.65rem;
+
+      border-radius: 9px;
+
+      background: var(--pf-navy);
+
+      color: white;
+
+      font-size: 0.74rem;
+
+      font-weight: 700;
+
+      text-decoration: none;
+
+    }
+
+
+    .empty-message {
+
+      padding: 3rem;
+
+      text-align: center;
+
+      color: var(--pf-muted);
+
+    }
+
+
+    .academic-notice {
+
+      margin:
+        2.5rem
+        0;
+
+      padding: 1rem;
+
+      border:
+        1px solid #eedba9;
+
+      border-left:
+        4px solid var(--pf-red);
+
+      border-radius: 12px;
+
+      background: #fff8e8;
+
+      color: #655729;
+
+    }
+
+
+    @media (max-width: 1100px) {
+
+      .products-grid {
+
+        grid-template-columns:
+          repeat(
+            4,
+            minmax(0, 1fr)
+          );
+
+      }
+
+
+      .search-panel {
+
+        grid-template-columns:
+          repeat(
+            2,
+            minmax(0, 1fr)
+          );
+
+      }
+
+
+      .search-panel label:first-child {
+
+        grid-column:
+          1 / -1;
+
+      }
+
+    }
+
+
+    @media (max-width: 800px) {
+
+      .products-grid {
+
+        grid-template-columns:
+          repeat(
+            2,
+            minmax(0, 1fr)
+          );
+
+      }
+
+    }
+
+
+    @media (max-width: 560px) {
+
+      .consulta-header {
+
+        padding:
+          3rem
+          0
+          1.5rem;
+
+      }
+
+
+      .consulta-header h1 {
+
+        font-size: 2.5rem;
+
+      }
+
+
+      .search-panel {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .search-panel label:first-child {
+
+        grid-column: auto;
+
+      }
+
+
+      .products-grid {
+
+        gap: 0.65rem;
+
+      }
+
+
+      .product-content {
+
+        padding: 0.7rem;
+
+      }
+
+    }
+
+
+    @media (max-width: 390px) {
+
+      .products-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+    }
+
+  </style>
 </head>
+
+
 <body>
 
-<div class="utility-bar">
-  <div class="container">
-    <button class="utility-btn" data-open-cep type="button">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-      <span data-cep-display>Informe seu CEP</span>
-    </button>
-    <span class="utility-sep" aria-hidden="true"></span>
-    <button class="utility-btn" data-open-location type="button">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="6"/></svg>
-      Usar localização
-    </button>
-  </div>
-</div>
+  <main class="container">
 
-<header class="site-header">
-  <div class="container">
-    <a href="index.html" class="brand">
-      <svg class="brand-mark" viewBox="0 0 48 48" fill="none">
-        <path d="M28 6.5 6.5 28a7.6 7.6 0 0 0 10.7 10.7L38.7 17.2A7.6 7.6 0 0 0 28 6.5Z" fill="#102B4E"/>
-        <path d="M28 6.5 17.6 16.9l10.7 10.7L38.7 17.2A7.6 7.6 0 0 0 28 6.5Z" fill="#E63946"/>
-        <circle cx="19" cy="26" r="8.5" fill="#fff" stroke="#102B4E" stroke-width="2.4"/>
-      </svg>
-      <span class="brand-name">Pharma<b>Find</b></span>
-    </a>
-    <nav class="main-nav" aria-label="Navegação principal">
-      <a href="index.html">Início</a>
-      <a href="consulta.html" aria-current="page">Consultar</a>
-      <a href="como-funciona.html">Como funciona</a>
-      <a href="sobre.html">Sobre nós</a>
+    <div class="utility">
+
+      <span>
+        Compare preços de forma simples.
+      </span>
+
+
+      <div class="utility-actions">
+
+        <button
+          id="cepOpen"
+          class="utility-button"
+          type="button"
+        >
+          Informe seu CEP
+        </button>
+
+
+        <button
+          id="locOpen"
+          class="utility-button"
+          type="button"
+        >
+          Usar localização
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <nav class="container-fluid">
+
+      <ul>
+
+        <li>
+          <strong>
+
+            <a
+              class="brand"
+              href="index.html"
+            >
+              pharma<span>find</span>
+            </a>
+
+          </strong>
+        </li>
+
+      </ul>
+
+
+      <ul class="desktop-menu">
+
+        <li>
+          <a href="index.html">
+            Início
+          </a>
+        </li>
+
+        <li>
+          <a href="consulta.html">
+            Consultar
+          </a>
+        </li>
+
+        <li>
+          <a href="como-funciona.html">
+            Como funciona
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="sobre.html"
+            role="button"
+          >
+            Sobre nós
+          </a>
+        </li>
+
+      </ul>
+
+
+      <button
+        class="mobile-menu-button"
+        id="mobileMenuButton"
+        type="button"
+      >
+        ☰
+      </button>
+
     </nav>
-    <div class="header-actions">
-      <a href="consulta.html" class="btn btn-outline btn-sm">Consultar agora</a>
-      <button class="hamburger" id="hamburgerBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="Abrir menu">
-        <span></span>
+
+
+    <div
+      id="mobileMenu"
+      class="mobile-menu"
+      hidden
+    >
+
+      <a href="index.html">
+        Início
+      </a>
+
+      <a href="consulta.html">
+        Consultar medicamentos
+      </a>
+
+      <a href="como-funciona.html">
+        Como funciona
+      </a>
+
+      <a href="sobre.html">
+        Sobre nós
+      </a>
+
+    </div>
+
+
+    <header class="consulta-header">
+
+      <span>
+        CONSULTA DE MEDICAMENTOS
+      </span>
+
+      <h1>
+        Pesquise e compare preços.
+      </h1>
+
+      <p>
+        Use a busca e os filtros para encontrar
+        medicamentos cadastrados neste protótipo.
+        Você também pode ordenar os resultados
+        pelo menor preço.
+      </p>
+
+    </header>
+
+
+    <section class="search-panel">
+
+      <label>
+
+        Buscar medicamento
+
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Ex.: Dipirona..."
+        >
+
+      </label>
+
+
+      <label>
+
+        Ordenar
+
+        <select id="sortSelect">
+
+          <option value="default">
+            Destaques
+          </option>
+
+          <option value="priceAsc">
+            Menor preço
+          </option>
+
+          <option value="priceDesc">
+            Maior preço
+          </option>
+
+        </select>
+
+      </label>
+
+
+      <label>
+
+        Tipo
+
+        <select id="typeSelect">
+
+          <option value="all">
+            Todos
+          </option>
+
+          <option value="Genérico">
+            Genérico
+          </option>
+
+          <option value="Similar">
+            Similar
+          </option>
+
+          <option value="Referência">
+            Referência
+          </option>
+
+        </select>
+
+      </label>
+
+
+      <label>
+
+        Farmácia
+
+        <select id="pharmacySelect">
+
+          <option value="all">
+            Todas
+          </option>
+
+          <option value="Farmácia Vida">
+            Farmácia Vida
+          </option>
+
+          <option value="Saúde Popular">
+            Saúde Popular
+          </option>
+
+          <option value="Bem Estar">
+            Bem Estar
+          </option>
+
+        </select>
+
+      </label>
+
+    </section>
+
+
+    <section>
+
+      <div class="results-header">
+
+        <h2>
+          Medicamentos
+        </h2>
+
+        <span id="resultsCount">
+          10 itens
+        </span>
+
+      </div>
+
+
+      <div
+        id="productsGrid"
+        class="products-grid"
+      ></div>
+
+
+      <p
+        id="emptyState"
+        class="empty-message"
+        hidden
+      >
+        Nenhum medicamento encontrado.
+      </p>
+
+    </section>
+
+
+    <aside class="academic-notice">
+
+      <strong>
+        Protótipo acadêmico:
+      </strong>
+
+      os preços, farmácias e estoques apresentados
+      nesta página são fictícios e servem somente
+      para demonstração do funcionamento.
+
+    </aside>
+
+
+    <footer class="container">
+
+      <div class="footer-brand">
+
+        <strong>
+          pharma<span>find</span>
+        </strong>
+
+        <p>
+          Compare. Encontre. Economize.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="index.html">
+          Início
+        </a>
+
+        <a href="como-funciona.html">
+          Como funciona
+        </a>
+
+        <a href="sobre.html">
+          Sobre nós
+        </a>
+
+      </div>
+
+    </footer>
+
+  </main>
+
+
+  <!-- POPUP LOCALIZAÇÃO -->
+
+  <div
+    id="locPopup"
+    class="popup"
+    hidden
+  >
+
+    <article class="popup-card">
+
+      <button
+        id="locClose"
+        class="popup-close"
+        type="button"
+      >
+        ×
       </button>
-    </div>
-  </div>
-</header>
 
-<nav class="mobile-nav" id="mobileNav" aria-label="Navegação mobile">
-  <a href="index.html">Início</a>
-  <a href="consulta.html" aria-current="page">Consultar</a>
-  <a href="como-funciona.html">Como funciona</a>
-  <a href="sobre.html">Sobre nós</a>
-  <div class="mobile-cta">
-    <a href="consulta.html" class="btn btn-primary btn-block">Consultar medicamentos</a>
-  </div>
-</nav>
 
-<main>
-  <section class="section consulta-hero">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Consulta de preços</p>
-        <h1 class="section-title">Encontre o menor preço para o seu medicamento</h1>
-        <p class="section-sub">Pesquise pelo nome, filtre por tipo e farmácia, e ordene pelo preço que faz mais sentido para você.</p>
+      <div class="location-icon">
+        ⌖
       </div>
 
-      <div class="search-panel">
-        <div class="search-input-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-          <input type="text" id="buscaInput" placeholder="Pesquisar por nome, ex: Dipirona" aria-label="Pesquisar medicamento pelo nome">
-        </div>
-        <div class="sort-inline" style="display:flex;">
-          <label for="ordenacaoTopo" class="visually-hidden">Ordenar por</label>
-          <select id="ordenacaoTopo" name="ordenacao">
-            <option value="relevancia">Relevância</option>
-            <option value="menor-preco">Menor preço</option>
-            <option value="maior-preco">Maior preço</option>
-          </select>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="section" style="padding-top:0;">
-    <div class="container">
-      <button class="btn btn-ghost filters-toggle" id="filtrosToggle" type="button" aria-controls="filtrosPanel">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
-        Filtros
+      <h2>
+        Usar sua localização?
+      </h2>
+
+      <p>
+        Podemos usar sua localização aproximada
+        para simular ofertas próximas.
+      </p>
+
+
+      <div class="popup-actions">
+
+        <button
+          id="allow"
+          class="primary-button"
+        >
+          Permitir
+        </button>
+
+        <button
+          id="decline"
+          class="secondary-button"
+        >
+          Agora não
+        </button>
+
+      </div>
+
+    </article>
+
+  </div>
+
+
+  <!-- CEP -->
+
+  <div
+    id="cepBox"
+    class="cep-box"
+    hidden
+  >
+
+    <button
+      id="cepClose"
+      class="popup-close"
+    >
+      ×
+    </button>
+
+
+    <h3>
+      Informe seu CEP
+    </h3>
+
+    <p>
+      Usado somente para simular sua região.
+    </p>
+
+
+    <div class="cep-form">
+
+      <input
+        id="cepInput"
+        type="text"
+        maxlength="9"
+        placeholder="00000-000"
+      >
+
+      <button
+        id="saveCep"
+        class="primary-button"
+      >
+        Aplicar
       </button>
 
-      <div class="results-layout">
-        <aside class="filters" id="filtrosPanel" aria-label="Filtros de busca">
-          <div class="filters-header">
-            <h3 style="margin:0;">Filtrar resultados</h3>
-            <button class="dialog-close" id="filtrosFechar" aria-label="Fechar filtros" type="button">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 6 12 12M18 6 6 18"/></svg>
-            </button>
-          </div>
-
-          <fieldset class="filter-group">
-            <legend>Tipo</legend>
-            <div id="filtroTipo"></div>
-          </fieldset>
-
-          <fieldset class="filter-group">
-            <legend>Farmácia</legend>
-            <div id="filtroFarmacia"></div>
-          </fieldset>
-
-          <fieldset class="filter-group">
-            <legend>Ordenar por</legend>
-            <label for="ordenacaoLateral" class="visually-hidden">Ordenar por</label>
-            <select id="ordenacaoLateral" name="ordenacao">
-              <option value="relevancia">Relevância</option>
-              <option value="menor-preco">Menor preço</option>
-              <option value="maior-preco">Maior preço</option>
-            </select>
-          </fieldset>
-
-          <button class="btn btn-outline filters-clear" id="limparFiltros" type="button">Limpar filtros</button>
-        </aside>
-
-        <div>
-          <div class="results-toolbar">
-            <p class="results-count" id="contadorResultados"><b>0</b> medicamentos encontrados</p>
-          </div>
-
-          <div class="med-grid" id="resultadosGrid" aria-live="polite"></div>
-
-          <div class="empty-state" id="estadoVazio">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-            <h3>Nenhum medicamento encontrado</h3>
-            <p>Tente ajustar o termo pesquisado ou remover alguns filtros.</p>
-          </div>
-
-          <p class="disclaimer">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.6 2.5 17a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 3.6a2 2 0 0 0-3.4 0Z"/></svg>
-            Os preços, farmácias e estoques apresentados são fictícios e servem apenas para demonstração acadêmica.
-          </p>
-        </div>
-      </div>
     </div>
-  </section>
-</main>
 
-<div class="filters-backdrop" id="filtrosBackdrop"></div>
-
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">
-          <svg class="brand-mark" viewBox="0 0 48 48" fill="none" style="width:30px;height:30px;">
-            <path d="M28 6.5 6.5 28a7.6 7.6 0 0 0 10.7 10.7L38.7 17.2A7.6 7.6 0 0 0 28 6.5Z" fill="#fff"/>
-            <circle cx="19" cy="26" r="8.5" fill="#0B2039" stroke="#fff" stroke-width="2.4"/>
-          </svg>
-          PharmaFind
-        </div>
-        <p class="footer-tagline">Compare. Encontre. Economize. Um protótipo acadêmico para comparação de preços de medicamentos.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Navegação</h4>
-        <ul>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="consulta.html">Consultar</a></li>
-          <li><a href="como-funciona.html">Como funciona</a></li>
-          <li><a href="sobre.html">Sobre nós</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Farmácias parceiras</h4>
-        <ul>
-          <li><a href="consulta.html">Farmácia Vida</a></li>
-          <li><a href="consulta.html">Saúde Popular</a></li>
-          <li><a href="consulta.html">Bem Estar</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Projeto</h4>
-        <ul>
-          <li><a href="sobre.html">Propósito</a></li>
-          <li><a href="sobre.html">Identidade visual</a></li>
-          <li><a href="como-funciona.html">Evolução futura</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 PharmaFind — protótipo acadêmico, dados fictícios.</span>
-      <span>Feito com HTML, CSS e JavaScript puro.</span>
-    </div>
   </div>
-</footer>
 
-<!-- POPUP CEP -->
-<div class="overlay" id="cepOverlay" role="dialog" aria-modal="true" aria-labelledby="cepTitle">
-  <div class="dialog">
-    <button class="dialog-close" data-close-dialog aria-label="Fechar">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 6 12 12M18 6 6 18"/></svg>
-    </button>
-    <h3 id="cepTitle">Informe seu CEP</h3>
-    <p>Usamos o CEP apenas para simular ofertas de farmácias próximas a você.</p>
-    <form id="cepForm">
-      <div class="field">
-        <label for="cepInput">CEP</label>
-        <input type="text" id="cepInput" inputmode="numeric" placeholder="00000-000" maxlength="9" aria-describedby="cepError">
-        <p class="field-error" id="cepError"></p>
-        <p class="field-success" id="cepSuccess"></p>
-      </div>
-      <div class="dialog-actions">
-        <button type="submit" class="btn btn-primary">Salvar CEP</button>
-      </div>
-    </form>
-  </div>
-</div>
 
-<!-- POPUP LOCALIZAÇÃO -->
-<div class="overlay" id="locationOverlay" role="dialog" aria-modal="true" aria-labelledby="locationTitle">
-  <div class="dialog">
-    <button class="dialog-close" data-close-dialog aria-label="Fechar">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 6 12 12M18 6 6 18"/></svg>
-    </button>
-    <div class="geo-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="6"/></svg>
-    </div>
-    <h3 id="locationTitle">Usar sua localização?</h3>
-    <p>Sua localização aproximada será usada apenas para simular ofertas de farmácias próximas. Você pode recusar a qualquer momento.</p>
-    <div class="dialog-actions">
-      <button class="btn btn-ghost" id="locationDeny" type="button">Agora não</button>
-      <button class="btn btn-primary" id="locationAllow" type="button">Permitir localização</button>
-    </div>
-  </div>
-</div>
+  <script src="script.js"></script>
+  <script src="consulta.js"></script>
 
-<!-- MODAL: VER OFERTA -->
-<div class="overlay" id="offerOverlay" role="dialog" aria-modal="true" aria-labelledby="offerNome">
-  <div class="dialog offer-dialog">
-    <button class="dialog-close" data-close-dialog aria-label="Fechar">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 6 12 12M18 6 6 18"/></svg>
-    </button>
-    <div class="offer-head">
-      <div class="offer-thumb"><img id="offerImg" src="" alt=""></div>
-      <div>
-        <h3 id="offerNome" style="font-size:1.1rem;">Nome do medicamento</h3>
-        <p id="offerDescricao" style="color:var(--ink-500); font-size:0.86rem; margin-top:4px;">Descrição</p>
-      </div>
-    </div>
-    <div class="offer-rows">
-      <div class="offer-row"><span>Tipo</span><span id="offerTipo">—</span></div>
-      <div class="offer-row"><span>Farmácia</span><span id="offerFarmacia">—</span></div>
-      <div class="offer-row total"><span>Preço</span><span id="offerPreco">—</span></div>
-    </div>
-    <div class="dialog-actions">
-      <button class="btn btn-primary btn-block" id="offerCta" type="button">Ir para a farmácia</button>
-    </div>
-  </div>
-</div>
-
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-<script src="script.js"></script>
-<script src="consulta.js"></script>
 </body>
 </html>

@@ -1,366 +1,569 @@
-<!-- Lucas PDM -->
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PharmaFind — Compare, encontre, economize</title>
-<meta name="description" content="Compare preços de medicamentos entre farmácias e encontre a opção mais barata perto de você. Protótipo acadêmico PharmaFind.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>PharmaFind — Início</title>
+
+  <!-- pico CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+  >
+
+  <!-- fontes do google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+    <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- ============ BARRA DE UTILIDADE (CEP / LOCALIZAÇÃO) ============ -->
-<div class="utility-bar">
-  <div class="container">
-    <button class="utility-btn" data-open-cep type="button">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-      <span data-cep-display>Informe seu CEP</span>
-    </button>
-    <span class="utility-sep" aria-hidden="true"></span>
-    <button class="utility-btn" data-open-location type="button">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="6"/></svg>
-      Usar localização
-    </button>
-  </div>
-</div>
+  <main class="container">
 
-<!-- ============ CABEÇALHO ============ -->
-<header class="site-header">
-  <div class="container">
-    <a href="index.html" class="brand">
-      <svg class="brand-mark" viewBox="0 0 48 48" fill="none">
-        <path d="M28 6.5 6.5 28a7.6 7.6 0 0 0 10.7 10.7L38.7 17.2A7.6 7.6 0 0 0 28 6.5Z" fill="#102B4E"/>
-        <path d="M28 6.5 17.6 16.9l10.7 10.7L38.7 17.2A7.6 7.6 0 0 0 28 6.5Z" fill="#E63946"/>
-        <circle cx="19" cy="26" r="8.5" fill="#fff" stroke="#102B4E" stroke-width="2.4"/>
-        <circle cx="19" cy="26" r="8.5" fill="none" stroke="#102B4E" stroke-width="2.4"/>
-      </svg>
-      <span class="brand-name">Pharma<b>Find</b></span>
-    </a>
+    <!-- 
+        localização e cep
+    -->
+    <div class="utility">
 
-    <nav class="main-nav" aria-label="Navegação principal">
-      <a href="index.html" aria-current="page">Início</a>
-      <a href="consulta.html">Consultar</a>
-      <a href="como-funciona.html">Como funciona</a>
-      <a href="sobre.html">Sobre nós</a>
+      <span>
+        Compare preços de forma simples.
+      </span>
+
+      <div class="utility-actions">
+
+        <button
+          id="cepOpen"
+          class="utility-button"
+          type="button"
+        >
+          Informe seu CEP
+        </button>
+
+        <button
+          id="locOpen"
+          class="utility-button"
+          type="button"
+        >
+          Usar localização
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!--
+         barra de navegação -->
+    <nav class="container-fluid">
+
+      <ul>
+
+        <li>
+          <strong>
+
+            <a
+              class="brand"
+              href="index.html"
+            >
+              pharma<span>find</span>
+            </a>
+
+          </strong>
+        </li>
+
+      </ul>
+
+
+      <ul class="desktop-menu">
+
+        <li>
+          <a href="consulta.html">
+            Consultar
+          </a>
+        </li>
+
+        <li>
+          <a href="como-funciona.html">
+            Como funciona
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="sobre.html"
+            role="button"
+          >
+            Sobre nós
+          </a>
+        </li>
+
+      </ul>
+
+
+      <!-- botão mobile -->
+      <button
+        class="mobile-menu-button"
+        id="mobileMenuButton"
+        type="button"
+        aria-label="Abrir menu"
+      >
+        ☰
+      </button>
+
     </nav>
 
-    <div class="header-actions">
-      <a href="consulta.html" class="btn btn-outline btn-sm">Consultar agora</a>
-      <button class="hamburger" id="hamburgerBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="Abrir menu">
-        <span></span>
-      </button>
+
+    <!-- menu mobile -->
+    <div
+      id="mobileMenu"
+      class="mobile-menu"
+      hidden
+    >
+
+      <a href="consulta.html">
+        Consultar medicamentos
+      </a>
+
+      <a href="como-funciona.html">
+        Como funciona
+      </a>
+
+      <a href="sobre.html">
+        Sobre nós
+      </a>
+
     </div>
-  </div>
-</header>
 
-<nav class="mobile-nav" id="mobileNav" aria-label="Navegação mobile">
-  <a href="index.html" aria-current="page">Início</a>
-  <a href="consulta.html">Consultar</a>
-  <a href="como-funciona.html">Como funciona</a>
-  <a href="sobre.html">Sobre nós</a>
-  <div class="mobile-cta">
-    <a href="consulta.html" class="btn btn-primary btn-block">Consultar medicamentos</a>
-  </div>
-</nav>
 
-<main>
-  <!-- ============ HERO ============ -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-copy">
-        <p class="eyebrow">Compare. Encontre. Economize.</p>
-        <h1 class="hero-title">O melhor preço, de um jeito <em>mais simples.</em></h1>
-        <p class="hero-sub">O PharmaFind reúne preços de medicamentos em farmácias parceiras para que você compare em segundos e escolha onde economizar — sem complicação.</p>
-        <div class="hero-cta">
-          <a href="consulta.html" class="btn btn-primary">Consultar medicamentos</a>
-          <a href="como-funciona.html" class="btn btn-ghost">Como funciona</a>
+    <!--
+         hero
+     -->
+    <section class="hero">
+
+      <img
+        src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1800&q=90"
+        alt="Medicamentos organizados"
+      >
+
+      <div class="hero-content">
+
+        <span class="eyebrow">
+          COMPARE • ENCONTRE • ECONOMIZE
+        </span>
+
+        <h1>
+          O melhor preço,
+          de um jeito mais simples.
+        </h1>
+
+        <p>
+          O PharmaFind reúne uma experiência de consulta
+          e comparação em uma interface simples, clara
+          e feita para funcionar no computador e no celular.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a
+            class="primary-button"
+            href="consulta.html"
+          >
+            Consultar medicamentos
+          </a>
+
+          <a
+            class="secondary-button"
+            href="como-funciona.html"
+          >
+            Como funciona
+          </a>
+
         </div>
-        <div class="hero-stats">
-          <div class="hero-stat"><b>10+</b><span>Medicamentos no catálogo</span></div>
-          <div class="hero-stat"><b>3</b><span>Farmácias parceiras</span></div>
-          <div class="hero-stat"><b>100%</b><span>Gratuito para usar</span></div>
-        </div>
+
       </div>
-      <div class="hero-media">
-        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1000&q=80" alt="Farmacêutica organizando prateleira de medicamentos em farmácia">
-        <div class="hero-floating">
-          <div class="badge">R$</div>
+
+    </section>
+
+
+    <!-- 
+         quick cars
+     -->
+    <section class="quick-cards">
+
+      <a
+        class="quick-card"
+        href="consulta.html"
+      >
+
+        <span class="card-number">
+          01
+        </span>
+
+        <h2>
+          Consultar
+        </h2>
+
+        <p>
+          Pesquise medicamentos e organize
+          os resultados pelo menor preço.
+        </p>
+
+        <strong>
+          Fazer consulta →
+        </strong>
+
+      </a>
+
+
+      <a
+        class="quick-card"
+        href="como-funciona.html"
+      >
+
+        <span class="card-number">
+          02
+        </span>
+
+        <h2>
+          Como funciona
+        </h2>
+
+        <p>
+          Entenda o fluxo de busca,
+          localização e comparação.
+        </p>
+
+        <strong>
+          Ver funcionamento →
+        </strong>
+
+      </a>
+
+
+      <a
+        class="quick-card"
+        href="sobre.html"
+      >
+
+        <span class="card-number">
+          03
+        </span>
+
+        <h2>
+          Sobre nós
+        </h2>
+
+        <p>
+          Conheça a proposta e os
+          objetivos do projeto PharmaFind.
+        </p>
+
+        <strong>
+          Conhecer o projeto →
+        </strong>
+
+      </a>
+
+    </section>
+
+
+    <!-- 
+         como funciona aba  -->
+    <section class="feature-section">
+
+      <div class="feature-text">
+
+        <span class="section-label">
+          COMO FUNCIONA
+        </span>
+
+        <h2>
+          Pesquise, filtre
+          e compare.
+        </h2>
+
+        <p>
+          Informe sua região se desejar, acesse a
+          consulta, pesquise entre os medicamentos
+          demonstrativos e organize os resultados
+          pelo menor preço.
+        </p>
+
+        <a href="como-funciona.html">
+          Entender como funciona →
+        </a>
+
+      </div>
+
+
+      <div class="feature-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=88"
+          alt="Ambiente relacionado à saúde"
+        >
+
+      </div>
+
+    </section>
+
+
+    <!-- 
+         sobre nós aba 
+          -->
+    <section class="feature-section feature-reverse">
+
+      <div class="feature-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1200&q=88"
+          alt="Ambiente relacionado à saúde"
+        >
+
+      </div>
+
+
+      <div class="feature-text">
+
+        <span class="section-label">
+          SOBRE NÓS
+        </span>
+
+        <h2>
+          Comparação com
+          menos complicação.
+        </h2>
+
+        <p>
+          O PharmaFind é um protótipo acadêmico
+          criado para demonstrar como busca,
+          filtros e comparação de preços podem
+          ser reunidos em uma única experiência.
+        </p>
+
+        <a href="sobre.html">
+          Conhecer o PharmaFind →
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!--
+         CTA -->
+    <section
+      class="cta"
+      aria-label="Subscribe example"
+    >
+
+      <div class="container">
+
+        <article>
+
           <div>
-            <strong>Dipirona 500 mg</strong>
-            <span>A partir de R$ 8,49 em 3 farmácias</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ============ ATALHOS ============ -->
-  <section class="section bg-alt">
-    <div class="container">
-      <div class="section-head center">
-        <p class="eyebrow">Comece por aqui</p>
-        <h2 class="section-title">Tudo o que você precisa, em três passos</h2>
-      </div>
-      <div class="shortcut-grid">
-        <a href="consulta.html" class="shortcut-card">
-          <div class="shortcut-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-          </div>
-          <h3>Consultar</h3>
-          <p>Pesquise pelo nome do medicamento e veja preços de diferentes farmácias lado a lado.</p>
-          <span class="shortcut-link">Ir para consulta <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a href="como-funciona.html" class="shortcut-card">
-          <div class="shortcut-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 17h.01"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.7-2.5 2-2.5 4"/><circle cx="12" cy="12" r="9"/></svg>
-          </div>
-          <h3>Como funciona</h3>
-          <p>Entenda a jornada completa: da sua região até a comparação final de preços.</p>
-          <span class="shortcut-link">Ver etapas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a href="sobre.html" class="shortcut-card">
-          <div class="shortcut-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v6c0 5 4 8.5 9 9 5-.5 9-4 9-9V7l-9-5Z"/></svg>
-          </div>
-          <h3>Sobre nós</h3>
-          <p>Conheça o propósito do projeto e a visão por trás do PharmaFind.</p>
-          <span class="shortcut-link">Conhecer o projeto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-      </div>
-    </div>
-  </section>
+            <span class="cta-label">
+              PHARMAFIND
+            </span>
 
-  <!-- ============ DESTAQUES ============ -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Destaques desta semana</p>
-        <h2 class="section-title">Alguns medicamentos do nosso catálogo</h2>
-        <p class="section-sub">Um pequeno recorte do que você encontra na página de consulta, com preços de farmácias diferentes.</p>
+            <h2>
+              Comece sua consulta.
+            </h2>
+
+            <p>
+              Teste a busca e a comparação
+              dos medicamentos demonstrativos.
+            </p>
+
+          </div>
+
+
+          <a
+            class="primary-button"
+            href="consulta.html"
+          >
+            Consultar medicamentos
+          </a>
+
+        </article>
+
       </div>
-      <div class="med-grid" id="destaquesGrid">
-        <article class="med-card">
-          <div class="med-thumb">
-            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80" alt="Embalagem de Dipirona Sódica 500 mg">
-            <span class="med-type">Genérico</span>
-          </div>
-          <div class="med-body">
-            <h3 class="med-name">Dipirona Sódica 500 mg</h3>
-            <p class="med-desc">Caixa com 20 comprimidos</p>
-            <p class="med-pharmacy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Farmácia Vida</p>
-            <div class="med-footer">
-              <p class="med-price"><small>A partir de</small>R$ 8,49</p>
-              <a href="consulta.html" class="btn btn-primary btn-sm">Ver oferta</a>
-            </div>
-          </div>
-        </article>
-        <article class="med-card">
-          <div class="med-thumb">
-            <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=600&q=80" alt="Embalagem de Paracetamol 750 mg">
-            <span class="med-type">Genérico</span>
-          </div>
-          <div class="med-body">
-            <h3 class="med-name">Paracetamol 750 mg</h3>
-            <p class="med-desc">Caixa com 20 comprimidos</p>
-            <p class="med-pharmacy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Bem Estar</p>
-            <div class="med-footer">
-              <p class="med-price"><small>A partir de</small>R$ 11,20</p>
-              <a href="consulta.html" class="btn btn-primary btn-sm">Ver oferta</a>
-            </div>
-          </div>
-        </article>
-        <article class="med-card">
-          <div class="med-thumb">
-            <img src="https://images.unsplash.com/photo-1587560699334-cc4ff634909a?auto=format&fit=crop&w=600&q=80" alt="Embalagem de Omeprazol 20 mg">
-            <span class="med-type">Genérico</span>
-          </div>
-          <div class="med-body">
-            <h3 class="med-name">Omeprazol 20 mg</h3>
-            <p class="med-desc">Caixa com 28 cápsulas</p>
-            <p class="med-pharmacy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Farmácia Vida</p>
-            <div class="med-footer">
-              <p class="med-price"><small>A partir de</small>R$ 14,90</p>
-              <a href="consulta.html" class="btn btn-primary btn-sm">Ver oferta</a>
-            </div>
-          </div>
-        </article>
-        <article class="med-card">
-          <div class="med-thumb">
-            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Embalagem de Vitamina C 500 mg">
-            <span class="med-type">Similar</span>
-          </div>
-          <div class="med-body">
-            <h3 class="med-name">Vitamina C 500 mg</h3>
-            <p class="med-desc">Frasco com 30 efervescentes</p>
-            <p class="med-pharmacy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Farmácia Vida</p>
-            <div class="med-footer">
-              <p class="med-price"><small>A partir de</small>R$ 16,60</p>
-              <a href="consulta.html" class="btn btn-primary btn-sm">Ver oferta</a>
-            </div>
-          </div>
-        </article>
+
+    </section>
+
+
+    <!-- footer  -->
+    <footer class="container">
+
+      <div class="footer-brand">
+
+        <strong>
+          pharma<span>find</span>
+        </strong>
+
+        <p>
+          Compare. Encontre. Economize.
+        </p>
+
       </div>
-      <p class="disclaimer">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.6 2.5 17a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 3.6a2 2 0 0 0-3.4 0Z"/></svg>
-        Os preços, farmácias e estoques apresentados são fictícios e servem apenas para demonstração acadêmica.
+
+
+      <div class="footer-links">
+
+        <a href="index.html">
+          Início
+        </a>
+
+        <a href="consulta.html">
+          Consulta
+        </a>
+
+        <a href="como-funciona.html">
+          Como funciona
+        </a>
+
+        <a href="sobre.html">
+          Sobre nós
+        </a>
+
+      </div>
+
+    </footer>
+
+  </main>
+
+
+  <!-- 
+       pop up de localização
+   -->
+  <div
+    id="locPopup"
+    class="popup"
+    hidden
+  >
+
+    <article class="popup-card">
+
+      <button
+        id="locClose"
+        class="popup-close"
+        type="button"
+        aria-label="Fechar"
+      >
+        ×
+      </button>
+
+
+      <div class="location-icon">
+        ⌖
+      </div>
+
+
+      <h2>
+        Usar sua localização?
+      </h2>
+
+      <p>
+        Podemos usar sua localização aproximada
+        para simular ofertas próximas.
+        Você pode permitir ou recusar.
       </p>
-    </div>
-  </section>
 
-  <!-- ============ COMO FUNCIONA (teaser) ============ -->
-  <section class="section bg-alt">
-    <div class="container">
-      <div class="section-head center">
-        <p class="eyebrow">Simples assim</p>
-        <h2 class="section-title">Da busca à economia, em quatro passos</h2>
-      </div>
-      <div class="steps-grid">
-        <div class="step-card">
-          <span class="step-num">01</span>
-          <h3>Informe sua região</h3>
-          <p>Digite seu CEP ou permita a localização aproximada.</p>
-        </div>
-        <div class="step-card">
-          <span class="step-num">02</span>
-          <h3>Pesquise</h3>
-          <p>Digite o nome do medicamento que você procura.</p>
-        </div>
-        <div class="step-card">
-          <span class="step-num">03</span>
-          <h3>Use os filtros</h3>
-          <p>Filtre por tipo, farmácia e ordenação de preço.</p>
-        </div>
-        <div class="step-card">
-          <span class="step-num">04</span>
-          <h3>Compare</h3>
-          <p>Veja as opções lado a lado e escolha a mais barata.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ============ SOBRE (teaser) ============ -->
-  <section class="section">
-    <div class="container about-hero">
-      <img src="https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?auto=format&fit=crop&w=900&q=80" alt="Farmacêutico atendendo cliente no balcão">
-      <div>
-        <p class="eyebrow">Sobre o projeto</p>
-        <h2 class="section-title">Um protótipo pensado para simplificar</h2>
-        <p class="section-sub">O PharmaFind nasceu como um protótipo acadêmico com um objetivo claro: mostrar como a comparação de preços de medicamentos pode ser simples, direta e sem fricção — sem abrir mão de uma boa experiência visual.</p>
-        <div class="hero-cta">
-          <a href="sobre.html" class="btn btn-outline">Conhecer o projeto</a>
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="popup-actions">
 
-  <!-- ============ CTA FINAL ============ -->
-  <section class="section">
-    <div class="container">
-      <div class="cta-band">
-        <div>
-          <h2>Pronto para economizar na próxima compra?</h2>
-          <p>Consulte o catálogo, compare preços entre farmácias e encontre a opção mais barata em poucos segundos.</p>
-        </div>
-        <a href="consulta.html" class="btn btn-primary">Consultar medicamentos</a>
-      </div>
-    </div>
-  </section>
-</main>
+        <button
+          id="allow"
+          class="primary-button"
+          type="button"
+        >
+          Permitir
+        </button>
 
-<!-- ============ RODAPÉ ============ -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">
-          <svg class="brand-mark" viewBox="0 0 48 48" fill="none" style="width:30px;height:30px;">
-            <path d="M28 6.5 6.5 28a7.6 7.6 0 0 0 10.7 10.7L38.7 17.2A7.6 7.6 0 0 0 28 6.5Z" fill="#fff"/>
-            <circle cx="19" cy="26" r="8.5" fill="#0B2039" stroke="#fff" stroke-width="2.4"/>
-          </svg>
-          PharmaFind
-        </div>
-        <p class="footer-tagline">Compare. Encontre. Economize. Um protótipo acadêmico para comparação de preços de medicamentos.</p>
+        <button
+          id="decline"
+          class="secondary-button"
+          type="button"
+        >
+          Agora não
+        </button>
+
       </div>
-      <div class="footer-col">
-        <h4>Navegação</h4>
-        <ul>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="consulta.html">Consultar</a></li>
-          <li><a href="como-funciona.html">Como funciona</a></li>
-          <li><a href="sobre.html">Sobre nós</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Farmácias parceiras</h4>
-        <ul>
-          <li><a href="consulta.html">Farmácia Vida</a></li>
-          <li><a href="consulta.html">Saúde Popular</a></li>
-          <li><a href="consulta.html">Bem Estar</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Projeto</h4>
-        <ul>
-          <li><a href="sobre.html">Propósito</a></li>
-          <li><a href="sobre.html">Identidade visual</a></li>
-          <li><a href="como-funciona.html">Evolução futura</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 PharmaFind — protótipo acadêmico, dados fictícios.</span>
-      <span>Feito com HTML, CSS e JavaScript puro.</span>
-    </div>
+
+    </article>
+
   </div>
-</footer>
 
-<!-- ============ POPUP: CEP ============ -->
-<div class="overlay" id="cepOverlay" role="dialog" aria-modal="true" aria-labelledby="cepTitle">
-  <div class="dialog">
-    <button class="dialog-close" data-close-dialog aria-label="Fechar">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 6 12 12M18 6 6 18"/></svg>
+
+  <!-- 
+       CEP
+   -->
+  <div
+    id="cepBox"
+    class="cep-box"
+    hidden
+  >
+
+    <button
+      id="cepClose"
+      class="popup-close"
+      type="button"
+      aria-label="Fechar"
+    >
+      ×
     </button>
-    <h3 id="cepTitle">Informe seu CEP</h3>
-    <p>Usamos o CEP apenas para simular ofertas de farmácias próximas a você.</p>
-    <form id="cepForm">
-      <div class="field">
-        <label for="cepInput">CEP</label>
-        <input type="text" id="cepInput" inputmode="numeric" placeholder="00000-000" maxlength="9" aria-describedby="cepError">
-        <p class="field-error" id="cepError"></p>
-        <p class="field-success" id="cepSuccess"></p>
-      </div>
-      <div class="dialog-actions">
-        <button type="submit" class="btn btn-primary">Salvar CEP</button>
-      </div>
-    </form>
-  </div>
-</div>
 
-<!-- ============ POPUP: LOCALIZAÇÃO ============ -->
-<div class="overlay" id="locationOverlay" role="dialog" aria-modal="true" aria-labelledby="locationTitle">
-  <div class="dialog">
-    <button class="dialog-close" data-close-dialog aria-label="Fechar">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 6 12 12M18 6 6 18"/></svg>
-    </button>
-    <div class="geo-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="6"/></svg>
+
+    <h3>
+      Informe seu CEP
+    </h3>
+
+    <p>
+      Usado somente para simular sua região.
+    </p>
+
+
+    <div class="cep-form">
+
+      <input
+        id="cepInput"
+        type="text"
+        inputmode="numeric"
+        maxlength="9"
+        placeholder="00000-000"
+        aria-label="CEP"
+      >
+
+      <button
+        id="saveCep"
+        class="primary-button"
+        type="button"
+      >
+        Aplicar
+      </button>
+
     </div>
-    <h3 id="locationTitle">Usar sua localização?</h3>
-    <p>Sua localização aproximada será usada apenas para simular ofertas de farmácias próximas. Você pode recusar a qualquer momento.</p>
-    <div class="dialog-actions">
-      <button class="btn btn-ghost" id="locationDeny" type="button">Agora não</button>
-      <button class="btn btn-primary" id="locationAllow" type="button">Permitir localização</button>
-    </div>
+
   </div>
-</div>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="script.js"></script>
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+
 </body>
 </html>
