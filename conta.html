@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Criar conta — PharmaFind</title>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -14,84 +13,63 @@
 </head>
 
 <body class="account-page">
-  <main class="container">
-    <div class="utility">
-      <span>Compare preços de forma simples.</span>
-      <div class="utility-actions">
-        <a class="utility-button" href="index.html">Voltar ao início</a>
-      </div>
-    </div>
+  <main class="login-page">
+    <a class="brand login-brand" href="index.html" aria-label="PharmaFind, início">
+      pharma<span>find</span>
+    </a>
 
-    <nav class="container-fluid">
-      <ul>
-        <li>
-          <strong><a class="brand" href="index.html">pharma<span>find</span></a></strong>
-        </li>
-      </ul>
-      <ul class="desktop-menu">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="consulta.html">Consultar</a></li>
-        <li><a href="como-funciona.html">Como funciona</a></li>
-        <li><a href="sobre.html">Sobre nós</a></li>
-      </ul>
-      <a class="auth-login-button" href="login.html">Entrar</a>
-      <button class="mobile-menu-button" id="mobileMenuButton" type="button" aria-label="Abrir menu">☰</button>
-    </nav>
-
-    <div id="mobileMenu" class="mobile-menu" hidden>
-      <a href="consulta.html">Consultar medicamentos</a>
-      <a href="como-funciona.html">Como funciona</a>
-      <a href="sobre.html">Sobre nós</a>
-      <a class="auth-login-button" href="login.html">Entrar</a>
-    </div>
-
-    <section class="account-layout">
-      <div class="account-intro">
-        <span class="account-kicker">PHARMAFIND + VOCÊ</span>
+    <section class="login-shell" aria-labelledby="account-title">
+      <div class="login-intro">
+        <span class="section-label">PHARMAFIND</span>
         <h1>Uma forma mais simples de cuidar das suas escolhas.</h1>
         <p>Crie sua conta para salvar preferências e encontrar suas consultas com mais rapidez.</p>
-        <div class="account-note">
+        <div class="login-note">
           <span aria-hidden="true">+</span>
-          <p><strong>Seu espaço, do seu jeito.</strong><br>Seus dados ficam protegidos e você pode sair quando quiser.</p>
+          <p>Seu espaço, do seu jeito. Seus dados ficam protegidos e você pode sair quando quiser.</p>
         </div>
       </div>
 
-      <div class="account-panel">
-        <div class="account-panel-heading">
-             <h2>Criar sua conta</h2>
+      <div class="login-card">
+        <div class="login-card-heading">
+          <p class="login-kicker">Cadastro</p>
+          <h2 id="account-title">Criar sua conta</h2>
           <p>É rápido e gratuito.</p>
         </div>
 
         <form id="accountForm" novalidate>
-          <label for="name">Nome completo
-            <input id="name" name="name" type="text" autocomplete="name" placeholder="Como podemos chamar você?" required>
-          </label>
-          <label for="email">E-mail
-            <input id="email" name="email" type="email" autocomplete="email" placeholder="voce@email.com" required>
-          </label>
+          <label for="name">Nome completo</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Como podemos chamar você?" required>
+
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="voce@email.com" required>
+
           <div class="account-fields-row">
-            <label for="password">Senha
+            <div>
+              <label for="password">Senha</label>
               <input id="password" name="password" type="password" autocomplete="new-password" placeholder="Mínimo de 6 caracteres" minlength="6" required>
-            </label>
-            <label for="passwordConfirmation">Confirmar senha
+            </div>
+            <div>
+              <label for="passwordConfirmation">Confirmar senha</label>
               <input id="passwordConfirmation" name="passwordConfirmation" type="password" autocomplete="new-password" placeholder="Repita sua senha" required>
-            </label>
+            </div>
           </div>
+
           <label class="account-consent" for="terms">
             <input id="terms" name="terms" type="checkbox" required>
             <span>Concordo com os termos de uso e a política de privacidade.</span>
           </label>
-          <button class="primary-button account-submit" type="submit">Criar minha conta</button>
+
+          <button class="primary-button login-submit account-submit" type="submit">Criar minha conta</button>
           <p id="accountFeedback" class="account-feedback" role="status" aria-live="polite"></p>
         </form>
 
-        <p class="account-login">Já tem uma conta? <a href="conta.html#accountForm">Acesse por aqui</a></p>
+        <p class="create-account">Já tem uma conta? <a href="login.html">Acesse por aqui</a></p>
       </div>
     </section>
 
-    <footer class="container account-footer">
-      <span>© 2025 PharmaFind</span>
-      <span>Comparar ficou mais simples.</span>
+    <footer class="login-footer">
+      <span>© 2026 PharmaFind</span>
+      <a href="index.html">Voltar ao início</a>
     </footer>
   </main>
 

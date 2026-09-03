@@ -1868,109 +1868,39 @@ footer.container {
   min-height: 100vh;
 }
 
-.account-layout {
+#accountForm {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 500px);
-  gap: clamp(2rem, 7vw, 7rem);
-  align-items: center;
-  min-height: 620px;
-  padding: 4rem 0 5rem;
-}
-
-.account-intro {
-  max-width: 590px;
-}
-
-.account-kicker,
-.account-step {
-  color: var(--pf-red);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-}
-
-.account-intro h1 {
-  margin: 0.7rem 0 1.2rem;
-  color: var(--pf-navy);
-  font-family: "Playfair Display", serif;
-  font-size: clamp(2.8rem, 5vw, 5rem);
-  line-height: 1.02;
-  letter-spacing: -0.04em;
-}
-
-.account-intro > p {
-  max-width: 470px;
-  color: var(--pf-muted);
-  line-height: 1.7;
-}
-
-.account-note {
-  display: flex;
   gap: 0.8rem;
-  align-items: flex-start;
-  max-width: 390px;
-  margin-top: 2.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--pf-border);
 }
 
-.account-note > span {
-  color: var(--pf-red);
-  font-size: 1.8rem;
-  font-weight: 400;
-  line-height: 1;
-}
-
-.account-note p {
-  margin: 0;
-  color: var(--pf-muted);
-  font-size: 0.82rem;
-  line-height: 1.55;
-}
-
-.account-note strong {
-  color: var(--pf-navy);
-}
-
-.account-panel {
-  padding: clamp(1.4rem, 4vw, 2.5rem);
-  background: var(--pf-white);
-  border: 1px solid var(--pf-border);
-  border-radius: 18px;
-  box-shadow: var(--pf-shadow);
-}
-
-.account-panel-heading h2 {
-  margin: 0.5rem 0 0.15rem;
-  color: var(--pf-navy);
-  font-family: "Playfair Display", serif;
-  font-size: 2rem;
-}
-
-.account-panel-heading p {
-  margin-bottom: 1.5rem;
-  color: var(--pf-muted);
-  font-size: 0.85rem;
-}
-
-.account-panel label {
+#accountForm label {
   display: block;
-  margin-bottom: 0.85rem;
   color: var(--pf-navy);
   font-size: 0.78rem;
   font-weight: 700;
 }
 
-.account-panel input:not([type="checkbox"]) {
+#accountForm input:not([type="checkbox"]) {
+  width: 100%;
+  min-height: 48px;
   margin: 0.35rem 0 0;
-  background: #fcfdfe;
-  color: var(--pf-navy);
-  -webkit-text-fill-color: var(--pf-navy);
+  padding: 0.8rem 0.9rem;
+  border: 1px solid #dfe6ee;
+  border-radius: 12px;
+  background: #f9fafc;
+  color: var(--pf-text);
+  font: inherit;
 }
 
-.account-panel input:not([type="checkbox"])::placeholder {
+#accountForm input:not([type="checkbox"])::placeholder {
   color: var(--pf-muted);
   opacity: 1;
+}
+
+#accountForm input:not([type="checkbox"]):focus {
+  outline: none;
+  border-color: rgba(230, 57, 70, 0.7);
+  box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.12);
 }
 
 .account-fields-row {
@@ -1979,11 +1909,15 @@ footer.container {
   gap: 0.75rem;
 }
 
+.account-fields-row > div {
+  min-width: 0;
+}
+
 .account-consent {
   display: flex !important;
-  gap: 0.55rem;
   align-items: flex-start;
-  margin: 0.2rem 0 1.2rem !important;
+  gap: 0.55rem;
+  margin: 0.15rem 0 0.75rem !important;
   color: var(--pf-muted) !important;
   font-size: 0.72rem !important;
   font-weight: 400 !important;
@@ -1992,11 +1926,15 @@ footer.container {
 
 .account-consent input {
   flex: 0 0 auto;
-  margin: 0.1rem 0 0;
+  width: 16px;
+  height: 16px;
+  margin: 0.12rem 0 0;
+  accent-color: var(--pf-red);
 }
 
 .account-submit {
   width: 100%;
+  margin-top: 0.2rem;
 }
 
 .account-feedback {
@@ -2010,58 +1948,17 @@ footer.container {
 .account-feedback.is-error { color: var(--pf-red); }
 .account-feedback.is-success { color: #176344; }
 
-.account-login {
-  margin: 1.2rem 0 0;
-  color: var(--pf-muted);
-  font-size: 0.76rem;
-  text-align: center;
-}
-
-.account-login a {
-  color: var(--pf-navy);
-  font-weight: 700;
-}
-
-.account-footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 0 1.5rem;
-  border-top: 1px solid var(--pf-border);
-  color: var(--pf-muted);
-  font-size: 0.72rem;
-}
-
 @media (max-width: 800px) {
-  .account-layout {
+  .account-fields-row {
     grid-template-columns: 1fr;
-    min-height: 0;
-    padding: 3.5rem 0;
+    gap: 0.75rem;
   }
-
-  .account-intro h1 { font-size: clamp(2.7rem, 11vw, 4rem); }
 }
 
 @media (max-width: 560px) {
-  .account-fields-row { grid-template-columns: 1fr; gap: 0; }
-  .account-footer { gap: 1rem; flex-direction: column; }
-}
-
-nav.container-fluid a.nav-account-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  margin: 0 0 0 auto;
-  padding: 0.55rem 0.9rem;
-  border: 1px solid var(--pf-navy);
-  border-radius: 999px;
-  background: var(--pf-navy);
-  color: var(--pf-white);
-  font-size: 0.87rem;
-  font-weight: 700;
-  line-height: 1;
-  text-decoration: none;
-  white-space: nowrap;
+  .account-fields-row {
+    gap: 0.5rem;
+  }
 }
 
 nav.container-fluid a.nav-account-button:hover,

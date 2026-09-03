@@ -3,10 +3,16 @@ const mobileMenu = document.getElementById('mobileMenu');
 const accountForm = document.getElementById('accountForm');
 const accountFeedback = document.getElementById('accountFeedback');
 
-mobileMenuButton.addEventListener('click', () => {
-  mobileMenu.hidden = !mobileMenu.hidden;
-  mobileMenuButton.setAttribute('aria-expanded', String(!mobileMenu.hidden));
-});
+if (mobileMenuButton && mobileMenu) {
+  mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.hidden = !mobileMenu.hidden;
+    mobileMenuButton.setAttribute('aria-expanded', String(!mobileMenu.hidden));
+  });
+}
+
+if (!accountForm || !accountFeedback) {
+  throw new Error('Formulário de cadastro não encontrado.');
+}
 
 accountForm.addEventListener('submit', (event) => {
   event.preventDefault();
