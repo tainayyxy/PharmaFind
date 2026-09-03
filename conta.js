@@ -32,6 +32,7 @@ accountForm.addEventListener('submit', (event) => {
   }
 
   localStorage.setItem('pharmafindAccountName', formData.get('name'));
+  localStorage.setItem('pharmafindLoggedIn', 'true');
   accountFeedback.classList.add('is-success');
   accountFeedback.textContent = 'Conta criada neste protótipo. Bem-vindo ao PharmaFind!';
   accountForm.reset();

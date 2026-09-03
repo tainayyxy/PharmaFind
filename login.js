@@ -44,6 +44,7 @@ loginForm.addEventListener('submit', (event) => {
     return;
   }
 
+  localStorage.setItem('pharmafindLoggedIn', 'true');
   loginStatus.textContent = 'Acesso validado. Redirecionando para sua consulta...';
   window.setTimeout(() => {
     window.location.href = 'consulta.html';
