@@ -1269,9 +1269,336 @@ footer.container {
 }
 
 
+/* login */
+
+.login-page {
+  width: min(1120px, calc(100% - 32px));
+
+  min-height: 100vh;
+
+  margin: 0 auto;
+
+  padding: 1.1rem 0 1.5rem;
+}
+
+.login-brand {
+  display: inline-flex;
+
+  margin-bottom: 1.25rem;
+}
+
+.login-shell {
+  display: grid;
+
+  grid-template-columns: 1.15fr 0.85fr;
+
+  align-items: stretch;
+
+  gap: 2rem;
+}
+
+.login-intro {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+
+  padding: clamp(1.6rem, 3vw, 2.5rem);
+
+  border: 1px solid var(--pf-border);
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(16, 43, 78, 0.97),
+      rgba(7, 27, 49, 0.92)
+    );
+
+  color: var(--pf-white);
+
+  box-shadow: var(--pf-shadow);
+}
+
+.login-intro h1 {
+  margin: 0.9rem 0 0.9rem;
+
+  color: var(--pf-white);
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.3rem, 4vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+
+.login-intro p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  line-height: 1.7;
+}
+
+.login-note {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+
+  margin-top: 1.4rem;
+
+  padding-top: 1rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.login-note span {
+  display: inline-grid;
+
+  place-items: center;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  color: var(--pf-white);
+
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.login-note p {
+  margin: 0;
+}
+
+.login-card {
+  padding: clamp(1.4rem, 2vw, 2rem);
+
+  border: 1px solid var(--pf-border);
+  border-radius: 28px;
+
+  background: var(--pf-white);
+
+  box-shadow: var(--pf-shadow);
+}
+
+.login-card-heading {
+  margin-bottom: 1.25rem;
+}
+
+.login-kicker {
+  margin: 0 0 0.4rem;
+
+  color: var(--pf-red);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.login-card-heading h2 {
+  margin: 0;
+
+  color: var(--pf-navy);
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  line-height: 1.05;
+}
+
+.login-card-heading p {
+  margin: 0.45rem 0 0;
+
+  color: var(--pf-muted);
+
+  line-height: 1.6;
+}
+
+#loginForm {
+  display: grid;
+
+  gap: 0.8rem;
+}
+
+#loginForm label {
+  display: block;
+
+  color: var(--pf-navy);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+#loginForm input:not([type="checkbox"]) {
+  width: 100%;
+
+  min-height: 48px;
+
+  padding: 0.8rem 0.9rem;
+
+  border: 1px solid #dfe6ee;
+  border-radius: 12px;
+
+  background: #f9fafc;
+
+  color: var(--pf-text);
+
+  font: inherit;
+}
+
+#loginForm input:not([type="checkbox"]):focus {
+  outline: none;
+
+  border-color: rgba(230, 57, 70, 0.7);
+
+  box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.12);
+}
+
+.field-error {
+  min-height: 1em;
+
+  color: var(--pf-red);
+
+  font-size: 0.72rem;
+}
+
+.password-label-row {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 0.7rem;
+}
+
+.password-label-row a {
+  color: var(--pf-red);
+
+  font-size: 0.74rem;
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 86px !important;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+
+  transform: translateY(-50%);
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--pf-navy);
+
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.remember-me {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 0.55rem;
+
+  margin-top: 0.15rem;
+
+  color: var(--pf-muted);
+
+  font-size: 0.82rem;
+}
+
+.remember-me input {
+  width: 16px;
+  height: 16px;
+
+  accent-color: var(--pf-red);
+}
+
+.login-submit {
+  width: 100%;
+
+  margin-top: 0.5rem;
+}
+
+.login-status {
+  min-height: 1.2em;
+
+  margin: 0.45rem 0 0;
+
+  color: var(--pf-muted);
+
+  font-size: 0.8rem;
+}
+
+.create-account {
+  margin: 1.2rem 0 0;
+
+  color: var(--pf-muted);
+
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.create-account a {
+  color: var(--pf-navy);
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.login-footer {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  padding-top: 1.1rem;
+
+  color: var(--pf-muted);
+
+  font-size: 0.78rem;
+}
+
+.login-footer a {
+  color: var(--pf-navy);
+
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
 /* tablets */
 
 @media (max-width: 850px) {
+  .login-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .login-intro {
+    min-height: 280px;
+  }
   .desktop-menu {
     display:
       none !important;

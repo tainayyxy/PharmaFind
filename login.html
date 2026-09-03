@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar — PharmaFind</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="login-page">
+        <a class="brand login-brand" href="index.html" aria-label="PharmaFind, início">
+            pharma<span>find</span>
+        </a>
+
+        <section class="login-shell" aria-labelledby="login-title">
+            <div class="login-intro">
+                <span class="section-label">PHARMAFIND</span>
+                <h1>Cuide da sua rotina de saúde com mais clareza.</h1>
+                <p>Entre para consultar medicamentos, comparar preços e encontrar opções perto de você.</p>
+                <div class="login-note">
+                    <span aria-hidden="true">+</span>
+                    <p>Uma experiência simples para decisões mais tranquilas.</p>
+                </div>
+            </div>
+
+            <div class="login-card">
+                <div class="login-card-heading">
+                    <p class="login-kicker">Acesso à sua conta</p>
+                    <h2 id="login-title">Bem-vindo de volta</h2>
+                    <p>Use seus dados para continuar.</p>
+                </div>
+
+                <form id="loginForm" novalidate>
+                    <label for="email">E-mail</label>
+                    <input id="email" name="email" type="email" autocomplete="email" placeholder="seuemail@exemplo.com" required>
+                    <small class="field-error" id="emailError"></small>
+
+                    <div class="password-label-row">
+                        <label for="password">Senha</label>
+                        <a href="#" id="forgotPassword">Esqueci minha senha</a>
+                    </div>
+                    <div class="password-field">
+                        <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" minlength="6" required>
+                        <button class="password-toggle" id="togglePassword" type="button" aria-label="Mostrar senha">Mostrar</button>
+                    </div>
+                    <small class="field-error" id="passwordError"></small>
+
+                    <label class="remember-me">
+                        <input type="checkbox" name="remember">
+                        <span>Manter conectado</span>
+                    </label>
+
+                    <button class="primary-button login-submit" type="submit">Entrar</button>
+                    <p class="login-status" id="loginStatus" role="status" aria-live="polite"></p>
+                </form>
+                                <!-- esperar o everton falar o nome do arquivo de cadastro-->
+                <p class="create-account">Ainda não tem uma conta? <a href="conta.html">Cadastre-se</a></p>
+            </div>
+        </section>
+
+        <footer class="login-footer">
+            <span>© 2026 PharmaFind</span>
+            <a href="index.html">Voltar ao início</a>
+        </footer>
+    </main>
+    <script src="login.js"></script>
+</body>
+</html>

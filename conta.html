@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Criar conta — PharmaFind</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="account-page">
+  <main class="container">
+    <div class="utility">
+      <span>Compare preços de forma simples.</span>
+      <div class="utility-actions">
+        <a class="utility-button" href="index.html">Voltar ao início</a>
+      </div>
+    </div>
+
+    <nav class="container-fluid">
+      <ul>
+        <li>
+          <strong><a class="brand" href="index.html">pharma<span>find</span></a></strong>
+        </li>
+      </ul>
+      <ul class="desktop-menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="consulta.html">Consultar</a></li>
+        <li><a href="como-funciona.html">Como funciona</a></li>
+        <li><a href="sobre.html">Sobre nós</a></li>
+      </ul>
+      <a class="nav-account-button" href="conta.html" aria-current="page">Criar conta</a>
+      <button class="mobile-menu-button" id="mobileMenuButton" type="button" aria-label="Abrir menu">☰</button>
+    </nav>
+
+    <div id="mobileMenu" class="mobile-menu" hidden>
+      <a href="consulta.html">Consultar medicamentos</a>
+      <a href="como-funciona.html">Como funciona</a>
+      <a href="sobre.html">Sobre nós</a>
+      <a href="conta.html">Criar conta</a>
+    </div>
+
+    <section class="account-layout">
+      <div class="account-intro">
+        <span class="account-kicker">PHARMAFIND + VOCÊ</span>
+        <h1>Uma forma mais simples de cuidar das suas escolhas.</h1>
+        <p>Crie sua conta para salvar preferências e encontrar suas consultas com mais rapidez.</p>
+        <div class="account-note">
+          <span aria-hidden="true">+</span>
+          <p><strong>Seu espaço, do seu jeito.</strong><br>Seus dados ficam protegidos e você pode sair quando quiser.</p>
+        </div>
+      </div>
+
+      <div class="account-panel">
+        <div class="account-panel-heading">
+          <span class="account-step">01 / 01</span>
+          <h2>Criar sua conta</h2>
+          <p>É rápido e gratuito.</p>
+        </div>
+
+        <form id="accountForm" novalidate>
+          <label for="name">Nome completo
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Como podemos chamar você?" required>
+          </label>
+          <label for="email">E-mail
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="voce@email.com" required>
+          </label>
+          <div class="account-fields-row">
+            <label for="password">Senha
+              <input id="password" name="password" type="password" autocomplete="new-password" placeholder="Mínimo de 6 caracteres" minlength="6" required>
+            </label>
+            <label for="passwordConfirmation">Confirmar senha
+              <input id="passwordConfirmation" name="passwordConfirmation" type="password" autocomplete="new-password" placeholder="Repita sua senha" required>
+            </label>
+          </div>
+          <label class="account-consent" for="terms">
+            <input id="terms" name="terms" type="checkbox" required>
+            <span>Concordo com os termos de uso e a política de privacidade.</span>
+          </label>
+          <button class="primary-button account-submit" type="submit">Criar minha conta</button>
+          <p id="accountFeedback" class="account-feedback" role="status" aria-live="polite"></p>
+        </form>
+
+        <p class="account-login">Já tem uma conta? <a href="conta.html#accountForm">Acesse por aqui</a></p>
+      </div>
+    </section>
+
+    <footer class="container account-footer">
+      <span>© 2025 PharmaFind</span>
+      <span>Comparar ficou mais simples.</span>
+    </footer>
+  </main>
+
+  <script src="conta.js"></script>
+</body>
+
+</html>
